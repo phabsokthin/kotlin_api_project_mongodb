@@ -9,6 +9,8 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface ApiService {
 
@@ -33,4 +35,16 @@ interface ApiService {
         @Path("deleteName") deleteName: String,
         @Path("id") id: String
     ): Call<Void>
+
+
+    //search once
+//    @GET("{searchDataName}")
+//    fun searchUser(@Path("searchDataName") searchDataName: String,  @Query("name") name: String): Call<List<CourseModel>>
+
+    //search multi
+    @GET("{searchDataName}")
+    fun searchUser(
+        @Path("searchDataName") searchDataName: String,
+        @QueryMap queryMap: Map<String, String> // ✅ Dynamic query parameters
+    ): Call<List<CourseModel>>
 }

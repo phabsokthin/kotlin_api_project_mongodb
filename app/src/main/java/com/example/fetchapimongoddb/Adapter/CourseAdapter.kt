@@ -146,10 +146,15 @@ class CourseAdapter(
                 }
             }
 
-
-
         }
 
     }
 
+
+    //update data for search
+    fun updateData(newList: List<CourseModel>) {
+        courseList.clear()  // Clear old data
+        courseList.addAll(newList)  // Add new data
+        notifyDataSetChanged() // Refresh RecyclerView
+    }
 }
